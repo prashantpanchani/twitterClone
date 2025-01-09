@@ -32,7 +32,7 @@ const userSchema =new mongoose.Schema({
     }],
     profileImg:{
         type:String,
-        default:"https://t4.ftcdn.net/jpg/05/49/98/39/360_F_549983970_bRCkYfk0P6PP5fKbMhZMIb07mCJ6esXL.jpg"
+        default:"https://res.cloudinary.com/dfnrhjh6k/image/upload/v1736412432/360_F_549983970_bRCkYfk0P6PP5fKbMhZMIb07mCJ6esXL_nkyyr6.jpg"
     },
     coverImg:{
         type:String,
