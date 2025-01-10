@@ -3,6 +3,8 @@ import { v2 as cloudinary } from 'cloudinary';
 
 import  authRoutes from './routes/authRoutes.js';
 import  userRoutes from './routes/userRoutes.js';
+import  postRoutes from './routes/postRoutes.js';
+
 
 import dotenv from 'dotenv';
 import connectMongoDB from './db/connectMongoDB.js';
@@ -25,6 +27,7 @@ app.use(cookieParser());
 
 app.use("/api/auth",authRoutes)
 app.use("/api/users",userRoutes)
+app.use("/api/posts",postRoutes)
 
 app.listen(PORT,()=>{
     console.log('Server started at http://localhost:'+PORT);
