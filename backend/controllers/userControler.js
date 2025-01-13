@@ -69,7 +69,7 @@ export const getSuggestedUsers = async (req, res) => {
         suggestedUser.forEach((user) => {
             user.password = null; //removing password from the user object
         })
-        res.status(200).json({ suggestedUser });
+        res.status(200).json(suggestedUser);
     } catch (error) {
         console.log("Error while getting suggested users", error.message);
         res.status(500).json({ message: "Internal server error while getting suggested users", error: error.message });
