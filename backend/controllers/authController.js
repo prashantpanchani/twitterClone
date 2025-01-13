@@ -9,18 +9,18 @@ export const signup = async (req, res) => {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
         if (!emailRegex.test(email)) {
-            return res.status(400).json({ message: "Invalid Email Format" })
+            return res.status(400).json({ error: "Invalid Email Format" })
         }
         const existingUser = await User.findOne({ username });
         if (existingUser) {
-            return res.status(400).json({ message: "Username already exists" });
+            return res.status(400).json({ error: "Username already exists" });
         }
         const existingEmail = await User.findOne({ email });
         if (existingEmail) {
-            return res.status(400).json({ message: "Email already exists" });
+            return res.status(400).json({ error: "Email already exists" });
         }
         if (password.length < 6) {
-            return res.status(400).json({ message: "Password must be atleast 6 characters long" });
+            return res.status(400).json({ error: "Password must be atleast 6 characters long" });
         }
         //hashing password
         const salt = await bcrypt.genSalt(10);
@@ -99,6 +99,6 @@ export const getMe = async (req, res) => {
         res.status(200).json(user);
     }catch(error){
         console.log("Error while getting me controller", error.message);
-        res.status(500).json({ message: "internal server error while getting me" });
+        res.status(500).json({ error: "internal server error while getting me" });
     }
 }
